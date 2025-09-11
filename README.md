@@ -30,10 +30,10 @@ git clone https://github.com/p-rodr/a-new-heap.git
 cd a-new-heap
 
 # Compile
-g++ -std=c++17 -O2 -o galactic main.cpp pairing_heap.cpp
+g++ -std=c++17 -O2 -o galactic main.cpp
 
 # Run with sample input
-./galactic < sample_input.txt > output.txt
+./galaxy -mvwg < spec-DL-in.txt
 ```
 
 
