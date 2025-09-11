@@ -1,0 +1,8 @@
+Deploying troops...
+---End of Day---
+Battles: 5
+---Movie Watcher---
+On planet 0, a movie watcher would enjoy an ambush with Sith at time 2 and Jedi at time 3 with a force difference of 43.
+On planet 0, a movie watcher would enjoy an attack with Jedi at time 2 and Sith at time 2 with a force difference of 29.
+On planet 1, a movie watcher would enjoy an ambush with Sith at time 2 and Jedi at time 3 with a force difference of 31.
+On planet 1, a movie watcher would enjoy an attack with Jedi at time 1 and Sith at time 2 with a force difference of 17.
