@@ -350,44 +350,7 @@ void verbose_output(const Sith &s,const Jedi &j, uint32_t num_troops){
 
 void read_line(vector<Planets> &planet_map, uint32_t timestamp,
                vector<General> &General, Options &options, uint32_t prevtime) {
-//    char type_str[6]; // For "SITH" or "JEDI"
-//    char g, p, f, hash;
-//    uint32_t generalID, planet_id, force_val, troops_count;
-//
-//    // Read formatted input using scanf-style parsing
-//    if (scanf("%5s %c%u %c%u %c%u %c%u",
-//              type_str,
-//              &g, &generalID,
-//              &p, &planet_id,
-//              &f, &force_val,
-//              &hash, &troops_count) != 9) {
-//        cerr << "Error parsing input line.\n";
-//        exit(1);
-//    }
-//
-//    string type(type_str);  // Convert to std::string for comparison
-//
-//    // Validation checks
-//    if (type != "JEDI" && type != "SITH") {
-//        cerr << "Invalid unit type: " << type << '\n';
-//        exit(1);
-//    }
-//    if (generalID >= General.size()) {
-//        cerr << "Invalid general ID\n";
-//        exit(1);
-//    }
-//    if (planet_id >= planet_map.size()) {
-//        cerr << "Invalid planet ID\n";
-//        exit(1);
-//    }
-//    if (force_val == 0 || troops_count == 0) {
-//        cerr << "Invalid force level or troop count\n";
-//        exit(1);
-//    }
-//    if (prevtime > timestamp) {
-//        cerr << "Invalid decreasing timestamp\n";
-//        exit(1);
-//    }
+
     
     string line;
 
@@ -519,126 +482,7 @@ void read_line(vector<Planets> &planet_map, uint32_t timestamp,
 
 
 
-//void read_line(vector<Planets> &planet_map, uint32_t timestamp, vector<General> &General,
-//               Options &options, uint32_t prevtime){
-//    string line;
-//    
-//    
-//    getline(cin, line); // e.g. "0 SITH G1 P2 F100 #10"
-//    
-//    
-//    stringstream ss(line);
-//    //int time;
-//    string type, general_str, planet_str, force_str, id_str; //orginal
-//
-//    ss >> type >> general_str >> planet_str >> force_str >> id_str;
-//    
-//    
-//    
-//    
-//    
-//    
-//    if (type != "JEDI" && type != "SITH") {
-//        cerr << "Invalid unit type: " << type << '\n';
-//        exit(1);
-//    }
-//    
-//    
-//    // Extract numeric parts
-//    int force_val = stoi(force_str.substr(1));     // from "F100"
-//    int troops_count = stoi(id_str.substr(1));       // from "#10"
-//    int generalID = stoi(general_str.substr(1)); // from "G1"
-//    int planet_id = stoi(planet_str.substr(1));     // from "P2"
-//    if(0 > generalID ){
-//        cout << "Invalid general ID";
-//        exit(1);
-//    }
-//    
-//    if(0 > planet_id){
-//        cout << "Invalid planet ID";
-//        exit(1);
-//    }
-//    
-//    
-//    if(force_val <= 0){
-//        cout << "Invalid force sensitivity level";
-//        exit(1);
-//    }
-//    
-//    if(troops_count <= 0){
-//        cout << "Invalid number of troops";
-//        exit(1);
-//    }
-//    
-//    
-//    // Convert to uint32_t
-//    //uint32_t timestamp = static_cast<uint32_t>(time);
-//    uint32_t general = static_cast<uint32_t>(generalID);
-//    uint32_t planet = static_cast<uint32_t>(planet_id);
-//    uint32_t force = static_cast<uint32_t>(force_val);
-//    uint32_t troops = static_cast<uint32_t>(troops_count);
-//    
-//    if( general >= General.size()){
-//        cout << "Invalid general ID";
-//        exit(1);
-//    }
-//    
-//    if( planet >= planet_map.size()){
-//        cout << "Invalid planet ID";
-//        exit(1);
-//    }
-//    
-//    if(prevtime > timestamp){
-//        cout << "Invalid decreasing timestamp";
-//        exit(1);
-//    }
-//
-//    // Fill struct based on type
-//    if (type == "SITH") {
-//        Sith s{timestamp, false, general, planet, force, troops};
-//        s.unique_id = next_id++;
-//        // Use s...
-//       // cout << "Sith: time = " << s.timestamp << " troops = " << s.troops << endl;
-//        planet_map[planet].sithQueue.push(s);
-//        
-//        
-//        if(options.general_eval == true){
-//            General[s.general].sithtroops += s.troops;
-//        }
-//        if(options.watcher == true){
-//            bool temp = true;
-//            planet_map[planet].currentsith = s;
-//            planet_map[planet].attackmode(temp);
-//            planet_map[planet].ambushmode(temp);
-//           
-//        }
-//        
-//    
-//      
-//    } else if (type == "JEDI") {
-//        Jedi j{timestamp, true, general, planet, force, troops};
-//        j.unique_id = next_id++;
-//        // Use j...
-//       // cout << "Jedi: time = " << j.timestamp << " troops = " << j.troops << endl;
-//
-//        planet_map[planet].jediQueue.push(j);
-//        
-//        
-//        if(options.general_eval == true){
-//            General[j.general].jeditroops += j.troops;
-//        }
-//        
-//        if(options.watcher == true){
-//            bool temp = false;
-//            planet_map[planet].currentjedi = j;
-//            planet_map[planet].attackmode(temp);
-//            planet_map[planet].ambushmode(temp);
-//        }
-//        
-//        
-//    }
-//    
-//}
+
 
 
 void fight(Planets &p, Options options, vector<General> &General) {
@@ -769,36 +613,7 @@ void print_generaleval(vector<General> &G){
     }
 }
 
-//void print_movie(const vector<Planets> &pmap) {
-//    cout << "---Movie Watcher---\n";
-//
-//    for (size_t i = 0; i < pmap.size(); ++i) {
-//        const Planets &p = pmap[i];
-//
-//        bool has_ambush = p.abestjedi.troops > 0 && p.abestsith.troops > 0;
-//        bool has_attack = p.bestjedi.troops > 0 && p.bestsith.troops > 0;
-//
-//        if (has_ambush) {
-//            cout << "On planet " << i
-//                 << ", a movie watcher would enjoy an ambush with Sith at time "
-//                 << p.abestsith.timestamp << " and Jedi at time "
-//                 << p.abestjedi.timestamp << " with a force difference of "
-//                 << p.abestsith.force - p.abestjedi.force << ".\n";
-//        } else {
-//            cout << "On planet " << i << ", a movie watcher would not see an interesting ambush.\n";
-//        }
-//
-//        if (has_attack) {
-//            cout << "On planet " << i
-//                 << ", a movie watcher would enjoy an attack with Jedi at time "
-//                 << p.bestjedi.timestamp << " and Sith at time "
-//                 << p.bestsith.timestamp << " with a force difference of "
-//                 << p.bestsith.force - p.bestjedi.force << ".\n";
-//        } else {
-//            cout << "On planet " << i << ", a movie watcher would not see an interesting attack.\n";
-//        }
-//    }
-//}
+
 
 
 
